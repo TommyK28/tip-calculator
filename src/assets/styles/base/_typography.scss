@@ -1,0 +1,44 @@
+@use 'variables' as *;
+@use 'sass:map';
+
+@font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+
+    src: url('/space_mono/SpaceMono-Bold.ttf') format('truetype');
+}
+
+$typography-presets: (
+    'preset-1': (
+        'size': 4.8rem,
+        'weight': $fw-bold,
+        'lh': 1.48,
+    ),
+    'preset-2': (
+        'size': 3.2rem,
+        'weight': $fw-bold,
+        'lh': 1.46,
+    ),
+    'preset-3': (
+        'size': 2.4rem,
+        'weight': $fw-bold,
+        'lh': 1.5,
+    ),
+    'preset-4': (
+        'size': 2rem,
+        'weight': $fw-bold,
+        'lh': 1.5,
+    ),
+    'preset-5': (
+        'size': 1.6rem,
+        'weight': $fw-bold,
+        'lh': 1.5,
+    ),
+    'preset-6': (
+        'size': 1.3rem,
+        'weight': $fw-bold,
+        'lh': 1.18,
+    ),
+);

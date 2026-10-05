@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: $font-primary;
+    color: $c-black;
+    background-color: $c-grey-200;
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+button {
+    width: fit-content;
+    font-family: $font-primary;
+    background: none;
+    outline: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

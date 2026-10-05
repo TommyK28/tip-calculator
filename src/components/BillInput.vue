@@ -1,0 +1,79 @@
+<script setup>
+const amount = defineModel('amount')
+</script>
+
+<template>
+    <div class="filed">
+        <div class="field__header">
+            <label for="">Bill</label>
+            <p class="field__error" role="alert"></p>
+        </div>
+
+        <div class="field__control">
+            <svg
+                class="icon"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                width="11"
+                height="17"
+            >
+                <path
+                    fill="#9ebbbd"
+                    d="M6.016 16.328v-1.464q1.848-.12 2.964-1.092t1.116-2.58v-.144q0-1.488-1.044-2.34T6.016 7.616V4.184q.84.216 1.356.768t.516 1.344v.288h1.824v-.432q0-.672-.264-1.284a3.8 3.8 0 0 0-.744-1.116A4.3 4.3 0 0 0 7.54 2.9a5.3 5.3 0 0 0-1.524-.492V.872H4.288V2.36a5.5 5.5 0 0 0-1.416.324q-.672.252-1.176.672T.892 4.364t-.3 1.356v.144q0 1.44.948 2.244t2.748 1.044v3.912q-1.056-.24-1.632-.936T2.08 10.28v-.288H.256v.576q0 .696.24 1.38t.732 1.272 1.248 1.008c.756.42 1.108.476 1.812.588v1.512zM4.288 7.424q-1.032-.192-1.428-.612T2.464 5.72q0-.696.528-1.104t1.296-.528zm1.728 5.712V9.344q1.152.192 1.68.6t.528 1.248q0 .816-.588 1.32t-1.62.624"
+                />
+            </svg>
+
+            <input
+                name="bill"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="0.01"
+                placeholder="0"
+                autocomplete="off"
+                v-model.number="amount"
+            />
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scope>
+.field {
+    &__header {
+        font-size: 1.6rem;
+        color: $c-grey-500;
+        margin-bottom: $spacing-100;
+    }
+
+    &__error {
+        margin: 0;
+    }
+
+    &__control {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            position: absolute;
+            left: 1.8rem;
+        }
+
+        input {
+            width: 100%;
+            font-size: 2.4rem;
+            text-align: right;
+            border: 1px solid transparent;
+            border-radius: $b-radius-5;
+            background-color: $c-grey-50;
+            padding: $spacing-50 $spacing-250;
+
+            &:focus-visible {
+                border-color: $c-green-400;
+                outline-color: $c-green-400;
+            }
+        }
+    }
+}
+</style>
