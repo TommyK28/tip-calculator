@@ -78,7 +78,7 @@ const resetCalculator = () => {
     </section>
 </template>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .tip-calculator {
     width: 100%;
     container: calculator / inline-size;

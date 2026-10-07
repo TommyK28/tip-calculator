@@ -43,7 +43,7 @@ const emits = defineEmits(['reset'])
     </aside>
 </template>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .tip-calculator__summary {
     display: grid;
     background-color: $c-green-900;
