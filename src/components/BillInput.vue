@@ -1,5 +1,22 @@
 <script setup>
 const amount = defineModel('amount')
+
+const handleInput = (e) => {
+    const value = e.target.value
+
+    if (value === '') {
+        amount.value = ''
+        return
+    }
+
+    const number = Number(e.target.value)
+
+    if (Number.isFinite(number) && number >= 0) {
+        amount.value = number
+    } else {
+        e.target.value = String(amount.value ?? '')
+    }
+}
 </script>
 
 <template>
@@ -32,7 +49,8 @@ const amount = defineModel('amount')
                 step="0.01"
                 placeholder="0"
                 autocomplete="off"
-                v-model.number="amount"
+                :value="amount"
+                @input="handleInput"
             />
         </div>
     </div>

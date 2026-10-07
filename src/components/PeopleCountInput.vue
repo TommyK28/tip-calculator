@@ -1,5 +1,23 @@
 <script setup>
 const peopleCount = defineModel('peopleCount')
+
+const handleInput = (e) => {
+    const value = e.target.value
+
+    if (value === '') {
+        peopleCount.value = ''
+        e.target.value = ''
+        return
+    }
+
+    const number = Number(value)
+
+    if (Number.isInteger(number) && number > 0) {
+        peopleCount.value = number
+    } else {
+        e.target.value = String(peopleCount.value ?? '')
+    }
+}
 </script>
 
 <template>
@@ -20,7 +38,8 @@ const peopleCount = defineModel('peopleCount')
                 step="1"
                 placeholder="1"
                 autocomplete="off"
-                v-model.number="peopleCount"
+                :value="peopleCount"
+                @input="handleInput"
             />
         </div>
     </div>
