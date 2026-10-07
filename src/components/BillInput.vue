@@ -22,7 +22,7 @@ const handleInput = (e) => {
 <template>
     <div class="field">
         <div class="field__header">
-            <label for="">Bill</label>
+            <label for="bill">Bill</label>
             <p class="field__error" role="alert"></p>
         </div>
 
@@ -43,6 +43,7 @@ const handleInput = (e) => {
 
             <input
                 name="bill"
+                id="bill"
                 type="number"
                 inputmode="decimal"
                 min="0"

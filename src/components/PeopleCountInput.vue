@@ -23,7 +23,7 @@ const handleInput = (e) => {
 <template>
     <div class="field">
         <div class="field__header">
-            <label for="">Number of people</label>
+            <label for="people">Number of people</label>
             <p class="field__error" role="alert"></p>
         </div>
 
@@ -32,6 +32,7 @@ const handleInput = (e) => {
 
             <input
                 name="people"
+                id="people"
                 type="number"
                 inputmode="numeric"
                 min="1"

@@ -55,7 +55,7 @@ const resetCalculator = () => {
 </script>
 
 <template>
-    <section class="tip-calculator" arial-labelledby="tipcalc-title">
+    <section class="tip-calculator" aria-labelledby="tipcalc-title">
         <div class="tip-calculator__wrapper">
             <h1 id="tipcalc-title" class="sr-only">Tip calculator</h1>
 

@@ -5,7 +5,7 @@ const customTip = defineModel('customTip')
 
 <template>
     <fieldset class="field">
-        <legend>Select Tipe %</legend>
+        <legend>Select Tip %</legend>
 
         <div class="tip-grid" role="radiogroup" aria-label="Tip percentage">
             <label class="tip-option">
