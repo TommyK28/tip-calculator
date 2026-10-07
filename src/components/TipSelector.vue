@@ -8,8 +8,9 @@ const customTip = defineModel('customTip')
         <legend>Select Tip %</legend>
 
         <div class="tip-grid" role="radiogroup" aria-label="Tip percentage">
-            <label class="tip-option">
+            <label class="tip-option" id="tip-5">
                 <input
+                    id="tip-5"
                     type="radio"
                     name="tip"
                     v-model.number="tip"
@@ -19,8 +20,9 @@ const customTip = defineModel('customTip')
                 <span>5%</span>
             </label>
 
-            <label class="tip-option">
+            <label class="tip-option" id="tip-10">
                 <input
+                    id="tip-10"
                     type="radio"
                     name="tip"
                     v-model.number="tip"
@@ -30,8 +32,9 @@ const customTip = defineModel('customTip')
                 <span>10%</span>
             </label>
 
-            <label class="tip-option">
+            <label class="tip-option" id="tip-15">
                 <input
+                    id="tip-15"
                     type="radio"
                     name="tip"
                     v-model.number="tip"
@@ -41,8 +44,9 @@ const customTip = defineModel('customTip')
                 <span>15%</span>
             </label>
 
-            <label class="tip-option">
+            <label class="tip-option" id="tip-25">
                 <input
+                    id="tip-25"
                     type="radio"
                     name="tip"
                     v-model.number="tip"
@@ -52,8 +56,9 @@ const customTip = defineModel('customTip')
                 <span>25%</span>
             </label>
 
-            <label class="tip-option">
+            <label class="tip-option" id="tip-50">
                 <input
+                    id="tip-50"
                     type="radio"
                     name="tip"
                     v-model.number="tip"
@@ -64,8 +69,9 @@ const customTip = defineModel('customTip')
             </label>
 
             <div class="tip-custom">
-                <label for="" class="sr-only">Custom tip percentage</label>
+                <label for="tip-custom" class="sr-only">Custom tip percentage</label>
                 <input
+                    id="tip-custom"
                     name="tip-custom"
                     type="number"
                     inputmode="numeric"
