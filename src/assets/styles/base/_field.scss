@@ -1,0 +1,39 @@
+@use './variables' as *;
+
+.field {
+    &__header {
+        font-size: 1.6rem;
+        color: $c-grey-500;
+        margin-bottom: $spacing-100;
+    }
+
+    &__error {
+        margin: 0;
+    }
+
+    &__control {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            position: absolute;
+            left: 1.8rem;
+        }
+
+        input {
+            width: 100%;
+            font-size: 2.4rem;
+            text-align: right;
+            border: 1px solid transparent;
+            border-radius: $b-radius-5;
+            background-color: $c-grey-50;
+            padding: $spacing-50 $spacing-250;
+
+            &:focus-visible {
+                border-color: $c-green-400;
+                outline-color: $c-green-400;
+            }
+        }
+    }
+}
