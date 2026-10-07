@@ -1,19 +1,31 @@
 <script setup>
+import { ref } from 'vue'
+
 const amount = defineModel('amount')
+const errorMessage = ref('')
 
 const handleInput = (e) => {
     const value = e.target.value
 
-    if (value === '') {
-        amount.value = ''
+    if (e.target.validity.badInput) {
+        errorMessage.value = 'Bill must be zero or greater.'
+        e.target.value = String(amount.value ?? '')
         return
     }
 
-    const number = Number(e.target.value)
+    if (value === '') {
+        amount.value = ''
+        errorMessage.value = ''
+        return
+    }
+
+    const number = Number(value)
 
     if (Number.isFinite(number) && number >= 0) {
         amount.value = number
+        errorMessage.value = ''
     } else {
+        errorMessage.value = 'Bill must be zero or greater.'
         e.target.value = String(amount.value ?? '')
     }
 }
@@ -23,7 +35,9 @@ const handleInput = (e) => {
     <div class="field">
         <div class="field__header">
             <label for="bill">Bill</label>
-            <p class="field__error" role="alert"></p>
+            <p v-if="errorMessage" id="bill-error" class="field__error" role="alert">
+                {{ errorMessage }}
+            </p>
         </div>
 
         <div class="field__control">
@@ -51,6 +65,8 @@ const handleInput = (e) => {
                 placeholder="0"
                 autocomplete="off"
                 :value="amount"
+                :aria-invalid="errorMessage ? 'true' : undefined"
+                :aria-describedby="errorMessage ? 'bill-error' : undefined"
                 @input="handleInput"
             />
         </div>

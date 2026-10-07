@@ -1,12 +1,21 @@
 <script setup>
+import { ref } from 'vue'
+
 const peopleCount = defineModel('peopleCount')
+const errorMessage = ref('')
 
 const handleInput = (e) => {
     const value = e.target.value
 
+    if (e.target.validity.badInput) {
+        errorMessage.value = 'Enter a whole number greater than zero.'
+        e.target.value = String(peopleCount.value ?? '')
+        return
+    }
+
     if (value === '') {
         peopleCount.value = ''
-        e.target.value = ''
+        errorMessage.value = ''
         return
     }
 
@@ -14,7 +23,9 @@ const handleInput = (e) => {
 
     if (Number.isInteger(number) && number > 0) {
         peopleCount.value = number
+        errorMessage.value = ''
     } else {
+        errorMessage.value = 'Enter a whole number greater than zero.'
         e.target.value = String(peopleCount.value ?? '')
     }
 }
@@ -24,7 +35,9 @@ const handleInput = (e) => {
     <div class="field">
         <div class="field__header">
             <label for="people">Number of people</label>
-            <p class="field__error" role="alert"></p>
+            <p v-if="errorMessage" id="people-error" class="field__error" role="alert">
+                {{ errorMessage }}
+            </p>
         </div>
 
         <div class="field__control">
@@ -40,6 +53,8 @@ const handleInput = (e) => {
                 placeholder="1"
                 autocomplete="off"
                 :value="peopleCount"
+                :aria-invalid="errorMessage ? 'true' : undefined"
+                :aria-describedby="errorMessage ? 'people-error' : undefined"
                 @input="handleInput"
             />
         </div>

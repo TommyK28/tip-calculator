@@ -9,6 +9,7 @@ const peopleCount = ref('')
 const billAmount = ref('')
 const selectTip = ref(null)
 const customTip = ref('')
+const resetCount = ref(0)
 
 const isValid = computed(() => {
     const bill = Number(billAmount.value)
@@ -51,6 +52,7 @@ const resetCalculator = () => {
     peopleCount.value = ''
     selectTip.value = null
     customTip.value = ''
+    resetCount.value += 1
 }
 </script>
 
@@ -61,11 +63,11 @@ const resetCalculator = () => {
 
             <form class="tip-calculator__form">
                 <div class="tip-calculator__inputs">
-                    <BillInput v-model:amount="billAmount" />
+                    <BillInput :key="resetCount" v-model:amount="billAmount" />
 
                     <TipSelector v-model:selectTip="selectTip" v-model:customTip="customTip" />
 
-                    <PeopleCountInput v-model:people-count="peopleCount" />
+                    <PeopleCountInput :key="resetCount" v-model:people-count="peopleCount" />
                 </div>
 
                 <TipSummary

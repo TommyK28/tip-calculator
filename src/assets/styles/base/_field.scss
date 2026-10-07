@@ -9,6 +9,7 @@
 
     &__error {
         margin: 0;
+        color: $c-orange-700;
     }
 
     &__control {
@@ -33,6 +34,10 @@
             &:focus-visible {
                 border-color: $c-green-400;
                 outline-color: $c-green-400;
+            }
+
+            &[aria-invalid='true'] {
+                border-color: $c-orange-700;
             }
         }
     }
