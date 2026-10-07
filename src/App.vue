@@ -1,5 +1,5 @@
 <script setup>
-import TipCalculatorView from '@/view/TipCalculator.vue'
+import TipCalculatorView from '@/views/TipCalculator.vue'
 </script>
 
 <template>
