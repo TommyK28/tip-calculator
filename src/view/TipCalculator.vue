@@ -13,12 +13,12 @@ const customTip = ref('')
 const isValid = computed(() => {
     const bill = Number(billAmount.value)
     const people = Number(peopleCount.value)
-    const tip = Number(tipPrecentage.value)
+    const tip = Number(tipPercentage.value)
 
     return (
         billAmount.value !== '' &&
         peopleCount.value !== '' &&
-        tipPrecentage.value !== null &&
+        tipPercentage.value !== null &&
         Number.isFinite(bill) &&
         bill >= 0 &&
         Number.isInteger(people) &&
@@ -28,7 +28,7 @@ const isValid = computed(() => {
     )
 })
 
-const tipPrecentage = computed(() => {
+const tipPercentage = computed(() => {
     return customTip.value !== '' ? customTip.value : selectTip.value
 })
 
@@ -36,7 +36,7 @@ const tipPerPerson = computed(() => {
     if (!isValid.value) return 0
 
     return (
-        (Number(billAmount.value) * Number(tipPrecentage.value)) / 100 / Number(peopleCount.value)
+        (Number(billAmount.value) * Number(tipPercentage.value)) / 100 / Number(peopleCount.value)
     )
 })
 
