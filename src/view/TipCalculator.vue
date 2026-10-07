@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import BillInput from '@/components/BillInput.vue'
 import TipSelector from '@/components/TipSelector.vue'
 import PeopleCountInput from '@/components/PeopleCountInput.vue'
